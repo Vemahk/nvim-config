@@ -4,6 +4,9 @@ map("n", "<leader>bd", function ()
 	vim.cmd.Rex();
 end)
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
