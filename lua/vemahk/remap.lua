@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 map("n", "<leader>bd", function ()
 	vim.cmd [[bd]];
-	vim.cmd.Rex();
+	vim.cmd.Ex();
 end)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

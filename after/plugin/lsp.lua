@@ -10,7 +10,7 @@ lsp_zero.setup_servers({'lua_ls', 'rust_analyzer', 'zls'})
 -- to learn how to use mason.nvim with lsp-zero
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 'lua_ls','zls', 'rust_analyzer' },
+  ensure_installed = { 'lua_ls','rust_analyzer' },
   handlers = {
     lsp_zero.default_setup,
   }
