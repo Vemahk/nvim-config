@@ -4,16 +4,17 @@ map("n", "<leader>bd", function ()
 	vim.cmd.Ex();
 end)
 
-map("n", "<leader>o", vim.cmd.only);
+map("n", "<leader>wo", vim.cmd.only);
+map("n", "<leader>wc", "<C-W>c");
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
 
 local opts = { noremap = true, silent = true }
 
