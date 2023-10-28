@@ -1,17 +1,33 @@
+local lspconfig = require('lspconfig')
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
-lsp_zero.setup_servers({'lua_ls', 'rust_analyzer', 'zls', 'html'})
-
 -- see :help lsp-zero-guide:integrate-with-mason-nvim
 -- to learn how to use mason.nvim with lsp-zero
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 'lua_ls','rust_analyzer' },
+  ensure_installed = { 'lua_ls', 'tsserver', 'html' },
   handlers = {
     lsp_zero.default_setup,
+    lua_ls = function ()
+        lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
+    end,
+    zls = function() lspconfig.zls.setup({}) end,
   }
+})
+
+local cmp = require('cmp');
+local cmp_action = lsp_zero.cmp_action();
+
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ['<Tab>'] = cmp_action.tab_complete(),
+        ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({select = true}),
+    }),
 })
