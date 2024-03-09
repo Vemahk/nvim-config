@@ -1,9 +1,6 @@
-local lspconfig = require('lspconfig')
 local lsp_zero = require('lsp-zero')
-
-lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({buffer = bufnr})
-end)
+local lspconfig = require('lspconfig')
+lspconfig.zls.setup({});
 
 -- see :help lsp-zero-guide:integrate-with-mason-nvim
 -- to learn how to use mason.nvim with lsp-zero
@@ -15,7 +12,6 @@ require('mason-lspconfig').setup({
     lua_ls = function ()
         lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
     end,
-    zls = function() lspconfig.zls.setup({}) end,
   }
 })
 
