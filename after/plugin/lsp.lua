@@ -1,6 +1,7 @@
 local lsp_zero = require('lsp-zero')
 local lspconfig = require('lspconfig')
 lspconfig.zls.setup({});
+lspconfig.rust_analyzer.setup({});
 
 -- see :help lsp-zero-guide:integrate-with-mason-nvim
 -- to learn how to use mason.nvim with lsp-zero
