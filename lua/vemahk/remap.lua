@@ -18,6 +18,11 @@ map("n", "N", "Nzzzv")
 
 local opts = { noremap = true, silent = true }
 
+map("i", "<S-Del>", "<C-O>dw", opts);
+map("i", "<C-H>", "<C-O>db", opts);
+map("i", "<S-BS>", "<C-O>db", opts);
+
+
 -- Move to previous/next
 map('n', '<M-,>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<M-.>', '<Cmd>BufferNext<CR>', opts)
