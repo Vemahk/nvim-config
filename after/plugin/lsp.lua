@@ -1,9 +1,5 @@
 local lsp_zero = require('lsp-zero')
-vim.lsp.config['zls'] = {};
-vim.lsp.config['rust_analyzer'] = {};
-vim.lsp.config['omnisharp'] = {
-    cmd = { "omnisharp" },
-
+vim.lsp.config('omnisharp', {
     settings = {
         FormattingOptions = {
             EnableEditorConfigSupport = true,
@@ -33,7 +29,11 @@ vim.lsp.config['omnisharp'] = {
         ["textDocument/references"] = require('omnisharp_extended').references_handler,
         ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
     },
-}
+})
+
+vim.lsp.enable('omnisharp');
+vim.lsp.enable('zls');
+vim.lsp.enable('rust_analyzer');
 
 -- see :help lsp-zero-guide:integrate-with-mason-nvim
 -- to learn how to use mason.nvim with lsp-zero
@@ -43,7 +43,8 @@ require('mason-lspconfig').setup({
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
-            vim.lsp.config['lua_ls'] = lsp_zero.nvim_lua_ls();
+            vim.lsp.config['luals'] = lsp_zero.nvim_lua_ls();
+            vim.lsp.enable('luals');
         end,
     }
 })

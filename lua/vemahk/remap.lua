@@ -18,6 +18,7 @@ map("n", "N", "Nzzzv")
 
 local opts = { noremap = true, silent = true }
 
+map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 map("i", "<S-Del>", "<C-O>dw", opts);
 map("i", "<C-H>", "<C-O>db", opts);
 map("i", "<S-BS>", "<C-O>db", opts);
