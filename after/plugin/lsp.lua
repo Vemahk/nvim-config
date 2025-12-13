@@ -30,8 +30,11 @@ vim.lsp.config('omnisharp', {
         ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
     },
 })
-
 vim.lsp.enable('omnisharp');
+
+vim.lsp.config('zls', {
+    cmd = { 'zls', '--config-path', '/home/vemahk/.config/zls.json'}
+});
 vim.lsp.enable('zls');
 vim.lsp.enable('rust_analyzer');
 
